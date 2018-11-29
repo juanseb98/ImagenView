@@ -10,6 +10,7 @@ import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 
@@ -38,8 +39,7 @@ public class ImageView extends JLabel {
         setSize(Ancho, Alto);
         setBorder(borde);
         icono = new ImageIcon(getClass().getResource("/Img/imagenDefecto.png"));
-        //obtenerImagen.run();
-        //obtenerIcono();
+
         setIcon(icono);
 
     }
@@ -59,31 +59,16 @@ public class ImageView extends JLabel {
         Alto = alto;
         setSize(Ancho, Alto);
         obtenerImagen.run();
-        //obtenerIcono();
         setIcon(icono);
 
     }
 
     public void setIcon(Image imagen) {
-        icono = new ImageIcon(imagen.getScaledInstance(getWidth(), getHeight(), Image.SCALE_DEFAULT));
-    }
-
-    /**
-     * Metodo privado para obtener un icono desde una URL
-     */
-    private void obtenerIcono() {
         try {
-
-            url = new URL(this.urlImagen);
-            imagen = ImageIO.read(url);
             icono = new ImageIcon(imagen.getScaledInstance(getWidth(), getHeight(), Image.SCALE_DEFAULT));
-
-        } catch (MalformedURLException ex) {
-            Logger.getLogger(ImageView.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(ImageView.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NullPointerException e) {
+            JOptionPane.showMessageDialog(null, "No se ha podido establecer la imagen", "Error con la URL", JOptionPane.ERROR_MESSAGE);
         }
-
     }
 
     /**
@@ -95,7 +80,6 @@ public class ImageView extends JLabel {
     private void setTamanio() {
         super.setSize(Ancho, Alto);
         obtenerImagen.run();
-        //obtenerIcono();
         setIcon(icono);
     }
 
@@ -106,8 +90,8 @@ public class ImageView extends JLabel {
      */
     public void setUrlImagen(String urlImagen) {
         this.urlImagen = urlImagen;
+        setBorder(null);
         obtenerImagen.run();
-        //obtenerIcono();
         setIcon(icono);
     }
 
