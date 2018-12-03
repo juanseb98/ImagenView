@@ -1,12 +1,6 @@
 package imageView;
 
 import java.awt.Image;
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -20,8 +14,6 @@ public class ImageView extends JLabel {
 
     private String urlImagen;
     private int Ancho, Alto;
-    private URL url;
-    private Image imagen;
     private Icon icono;
     private ObtenerImagen obtenerImagen;
     private Border borde;
@@ -31,6 +23,7 @@ public class ImageView extends JLabel {
      * imagen por defecto
      */
     public ImageView() {
+        urlImagen = "";
         setText("");
         obtenerImagen = new ObtenerImagen(this);
         Ancho = TAMANNO_DEFECTO;
@@ -79,7 +72,9 @@ public class ImageView extends JLabel {
      */
     private void setTamanio() {
         super.setSize(Ancho, Alto);
-        obtenerImagen.run();
+        if (!urlImagen.isEmpty()) {
+            obtenerImagen.run();
+        }
         setIcon(icono);
     }
 
@@ -91,7 +86,9 @@ public class ImageView extends JLabel {
     public void setUrlImagen(String urlImagen) {
         this.urlImagen = urlImagen;
         setBorder(null);
-        obtenerImagen.run();
+        if (!urlImagen.isEmpty()) {
+            obtenerImagen.run();
+        }
         setIcon(icono);
     }
 

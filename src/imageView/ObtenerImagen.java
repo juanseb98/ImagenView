@@ -9,8 +9,6 @@ import java.awt.Image;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.JOptionPane;
 
@@ -29,6 +27,9 @@ public class ObtenerImagen implements Runnable {
         imageView = thisImage;
     }
 
+    /**
+     * Creamos un hilo donde consultaremos la imagen en internet
+     */
     @Override
     public void run() {
         try {
