@@ -14,7 +14,7 @@ import org.junit.runners.Suite;
 
 /**
  *
- * @author DAM-2
+ * @author Juan Sebastian Gonzalez Sanchez
  */
 @RunWith(Suite.class)
 @Suite.SuiteClasses({imageView.ImageViewTest.class, imageView.ImageViewParametrizedText.class})

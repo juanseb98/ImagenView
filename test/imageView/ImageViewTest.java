@@ -9,7 +9,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author DAM-2
+ * @author Juan Sebastian Gonzalez Sanchez
  */
 public class ImageViewTest {
 
