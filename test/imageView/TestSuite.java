@@ -17,7 +17,7 @@ import org.junit.runners.Suite;
  * @author Juan Sebastian Gonzalez Sanchez
  */
 @RunWith(Suite.class)
-@Suite.SuiteClasses({imageView.ImageViewTest.class, imageView.ImageViewParametrizedText.class})
+@Suite.SuiteClasses({imageView.ImageViewTest.class, imageView.ImageViewParametrizedTest.class})
 public class TestSuite {
 
     @BeforeClass

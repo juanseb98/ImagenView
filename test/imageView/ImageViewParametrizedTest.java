@@ -21,7 +21,7 @@ import org.junit.runners.Parameterized.Parameters;
  * @author Juan Sebastián González Sánchez
  */
 @RunWith(Parameterized.class)
-public class ImageViewParametrizedText {
+public class ImageViewParametrizedTest {
 
     @Parameters
     public static Iterable data() {
@@ -34,7 +34,7 @@ public class ImageViewParametrizedText {
     private int result;
     private static ImageView imagenView;
 
-    public ImageViewParametrizedText(int num1, int result) {
+    public ImageViewParametrizedTest(int num1, int result) {
         this.num1 = num1;
         this.result = result;
     }
